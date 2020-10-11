@@ -1,0 +1,52 @@
+﻿syntax = "proto3";
+package Message;
+option go_package = "message";
+
+enum MSGID {
+    Undefine_ = 0;
+
+	// 心跳
+    ReqHeartbeatE = 1001;
+    ResHeartbeatE = 1002;
+	ReqLoginE = 1003;
+	ResLoginE = 1004;
+	ReqChatE = 1005;
+	ResChatE = 1006;
+	ResHistoryChatE = 1007;
+
+	MAX_COUNT = 65536; // 请勿超过这个值
+	
+}
+
+message ReqHeartbeat {
+    int64 uid = 1;
+}
+
+message ResHeartbeat {
+    int64 uid = 1;
+	int64 serverUnixTime = 2;
+}
+
+message Chat {
+	string name = 1;
+	string content = 2;
+}
+
+message HistroyChat {
+	repeated Chat history = 1;
+}
+
+message ReqLogin {
+	string name = 1;
+	int32 roomId = 2;
+	int64 userId = 3;
+}
+
+message ResLogin {
+  enum Result {
+    unknown = 0;
+    success = 1;
+    fail = 2;
+  }
+  Result result = 1;
+}

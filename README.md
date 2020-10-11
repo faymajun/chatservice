@@ -1,6 +1,6 @@
-### go_modules
+### chat service
 * * *
-这是 chat-test 的 go 实现  
+这是 client 与 server chat sevice
 Notes:  
 如果获取依赖包出错 like this:  
 golang代理超时报错"https://proxy.golang.org/github.com/********** timeout  
